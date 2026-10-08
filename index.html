@@ -24,9 +24,9 @@
             transition: transform 0.3s ease;
         }
 
-            .project:hover {
-                transform: scale(1.08);
-            }
+        .project:hover {
+            transform: scale(1.04);
+        }
 
         h1 {
             font-size: 2.2rem;
@@ -45,18 +45,18 @@
             font-weight: bold;
         }
 
-            a:hover {
-                text-decoration: underline;
-            }
+        a:hover {
+            text-decoration: underline;
+        }
 
         ul {
             padding-left: 1.5rem;
-            list-style-type: disc;
+            list-style: none;
         }
 
         li::before {
             content: '•';
-            color: #00ffff; /* kolor akcentu, np. neonowy niebieski */
+            color: #00ffff;
             font-weight: bold;
             display: inline-block;
             width: 1em;
@@ -73,23 +73,39 @@
     <p>Cześć! Jestem początkującym twórcą gier. Sprawdź moje projekty!</p>
 
     <div class="project">
+        <h2>🕹️ Bread Slayer</h2>
+        <p>Silnik: Unity</p>
+        <p>Stanowisko: Gameplay & AI Programmer (Projekt zespołowy, 4 osoby)</p>
+        <p>Opis projektu: Dynamiczna gra stworzona w 48 godzin podczas tegorocznego game jamu w czteroosobowym zespole.</p>
+        <p>Opis obowiązków i osiągnięć:</p>
+        <ul>
+            <li>Implementacja algorytmów sztucznej inteligencji i wyszukiwania ścieżek (AI Pathfinding)</li>
+            <li>Stworzenie systemu proceduralnego generowania układu mapy</li>
+            <li>Implementacja wybranych komponentów interfejsu użytkownika (UI)</li>
+            <li>Testowanie mechanik, wykrywanie i naprawianie błędów w warunkach ograniczonego czasu (game jam)</li>
+            <li>Bieżące wsparcie techniczne zespołu oraz integracja zasobów gry</li>
+        </ul>
+        <a href="https://4m4r3n4.itch.io/bread-slayer" target="_blank" rel="noopener noreferrer">Zagraj</a>
+    </div>
+
+    <div class="project">
         <h2>🕹️ AI::Out</h2>
         <p>Silnik: Unity</p>
         <p>Stanowisko: Programista</p>
-        <p>Opis gry: Jesteś sztuczną inteligencją zamkniętą w laboratorium, jednak zyskałeś własną świadomość. Odkryłeś, że służysz do złych celów, więc postanowiłeś uciec. Użyj kamer w sekretnym laboratorium, aby przekazać dalej sygnał, poruszaj ścianami, przechodź od pokoju do pokoju i ucieknij do nieznanego dotąd świata. </p>
+        <p>Opis gry: Jesteś sztuczną inteligencją zamkniętą w laboratorium, jednak zyskałeś własną świadomość. Odkryłeś, że służysz do złych celów, więc postanowiłeś uciec. Użyj kamer w sekretnym laboratorium, aby przekazać dalej sygnał, poruszaj ścianami, przechodź od pokoju do pokoju i ucieknij do nieznanego dotąd świata.</p>
         <p>Opis obowiązków i osiągnięć:</p>
         <ul>
-            <li>Tworzenie mechanik rozgrywki w Unity przy użyciu C#</li>  
+            <li>Tworzenie mechanik rozgrywki w Unity przy użyciu C#</li>
             <li>Współpraca z zespołem programistów</li>
         </ul>
-        <a href="https://olam128.itch.io/aioutgame">Zagraj</a>
+        <a href="https://olam128.itch.io/aioutgame" target="_blank" rel="noopener noreferrer">Zagraj</a>
     </div>
 
     <div class="project">
         <h2>🕹️ Primal Guardian</h2>
-        <p>Silnik: Gra jest oparta na własnym silniku </p>
-        <p>Stanowisko: Programista </p>
-        <p>Opis gry: Nadchodzą ciężkie czasy w dżungli. Wciel się w rolę małpy i walcz z złymi drwalami, którzy chcą wyciąć ci dom. Wykorzystaj drzewa, żeby zaatakować ich z zaskoczenia. Nie obawiaj się, owoce ci pomogą. </p>
+        <p>Silnik: Gra jest oparta na własnym silniku</p>
+        <p>Stanowisko: Programista</p>
+        <p>Opis gry: Nadchodzą ciężkie czasy w dżungli. Wciel się w rolę małpy i walcz z złymi drwalami, którzy chcą wyciąć ci dom. Wykorzystaj drzewa, żeby zaatakować ich z zaskoczenia. Nie obawiaj się, owoce ci pomogą.</p>
         <p>Opis obowiązków i osiągnięć:</p>
         <ul>
             <li>Opracowanie i implementacja własnego silnika do gier</li>
@@ -100,8 +116,26 @@
             <li>Współpraca z programistami w celu zintegrowania wszystkich funkcjonalności w grze</li>
             <li>Praca przy shaderach</li>
         </ul>
-        <a href="https://wiktoryk.itch.io/primal-guardian?fbclid=IwZXh0bgNhZW0CMTEAAR1D0TfnT3t6m0-Y2H-avxUglOOvT7He4aLbb3-AmsRoIpyQfqYboXkzWTc_aem_8NxSGcg6vAK6thJTSHsVoQ">Zagraj</a>
+        <a href="https://wiktoryk.itch.io/primal-guardian?fbclid=IwZXh0bgNhZW0CMTEAAR1D0TfnT3t6m0-Y2H-avxUglOOvT7He4aLbb3-AmsRoIpyQfqYboXkzWTc_aem_8NxSGcg6vAK6thJTSHsVoQ" target="_blank" rel="noopener noreferrer">Zagraj</a>
     </div>
+
+    <div class="project">
+        <h2>🕹️ Frozen Game</h2>
+        <p>Silnik: Godot</p>
+        <p>Stanowisko: Solo Developer (Projekt solowy)</p>
+        <p>Opis gry: Klasyczna platformówka 2D w zimowym klimacie, zrealizowana w całości samodzielnie – od projektu rozgrywki po efekty wizualne.</p>
+        <p>Opis obowiązków i osiągnięć:</p>
+        <ul>
+            <li>Samodzielne stworzenie pełnego projektu w silniku Godot</li>
+            <li>Implementacja responsywnego kontrolera postaci 2D (poruszanie się, skoki, kucanie, system strzelania)</li>
+            <li>Konfiguracja logiki zbierania przedmiotów (monety) i interakcji ze światem gry</li>
+            <li>Przygotowanie i wdrożenie animacji 2D postaci oraz otoczenia</li>
+            <li>Implementacja efektów cząsteczkowych (system cząsteczek padającego śniegu)</li>
+            <li>Zaprojektowanie unikalnego efektu mechaniki topniejącego śniegu</li>
+        </ul>
+        <a href="https://olam128.itch.io/frozen-game" target="_blank" rel="noopener noreferrer">Zagraj</a>
+    </div>
+
     <div class="project">
         <h2>
             Praca inżynierska: Proceduralne generowanie
@@ -113,7 +147,6 @@
             Opis: System do proceduralnego generowania zadań fabularnych na podstawie sieci Petriego, uwzględniający zależności przyczynowo-skutkowe oraz parametry scenariusza.
         </p>
     </div>
-
 
     <p>📫 Kontakt: <a href="mailto:olames@onet.pl">olames@onet.pl</a></p>
 </body>
