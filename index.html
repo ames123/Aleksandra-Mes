@@ -1,153 +1,388 @@
 ﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aleksandra Mes – Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleksandra Mes – Game Programmer Portfolio</title>
     <style>
+        :root {
+            --bg: #0f1117;
+            --card-bg: #1a1d26;
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --tag-bg: #272b38;
+            --tag-text: #818cf8;
+            --border: #2d3345;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background: #1e1e2f;
-            color: #e0e0f0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             line-height: 1.6;
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
+            padding: 2rem 1rem;
         }
 
-        .project {
-            background: #2a2a40;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .project:hover {
-            transform: scale(1.04);
+        /* Nagłówek */
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
         }
 
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #00ffff;
-        }
-
-        h2 {
-            color: #a0e0ff;
-            font-size: 1.4rem;
-        }
-
-        a {
-            color: #00ffff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        ul {
-            padding-left: 1.5rem;
-            list-style: none;
-        }
-
-        li::before {
-            content: '•';
-            color: #00ffff;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        li {
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             margin-bottom: 0.5rem;
+        }
+
+        header p.subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .header-links {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Siatka projektów */
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Karta pojedynczego projektu */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-media {
+            width: 100%;
+            height: 200px;
+            background-color: #12151c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .project-role {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .task-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            color: #d1d5db;
+        }
+
+        .task-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .task-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Tagi technologii */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        /* Przyciski */
+        .buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-contact {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-contact:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Sekcja pracy dyplomowej */
+        .academic-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .academic-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>Aleksandra Mes</h1>
-    <p>Cześć! Jestem początkującym twórcą gier. Sprawdź moje projekty!</p>
 
-    <div class="project">
-        <h2>🕹️ Bread Slayer</h2>
-        <p>Silnik: Unity</p>
-        <p>Stanowisko: Gameplay & AI Programmer (Projekt zespołowy, 4 osoby)</p>
-        <p>Opis projektu: Dynamiczna gra stworzona w 48 godzin podczas tegorocznego game jamu w czteroosobowym zespole.</p>
-        <p>Opis obowiązków i osiągnięć:</p>
-        <ul>
-            <li>Implementacja algorytmów sztucznej inteligencji i wyszukiwania ścieżek (AI Pathfinding)</li>
-            <li>Stworzenie systemu proceduralnego generowania układu mapy</li>
-            <li>Implementacja wybranych komponentów interfejsu użytkownika (UI)</li>
-            <li>Testowanie mechanik, wykrywanie i naprawianie błędów w warunkach ograniczonego czasu (game jam)</li>
-            <li>Bieżące wsparcie techniczne zespołu oraz integracja zasobów gry</li>
-        </ul>
-        <a href="https://4m4r3n4.itch.io/bread-slayer" target="_blank" rel="noopener noreferrer">Zagraj</a>
+<div class="container">
+    <header>
+        <h1>Aleksandra Mes</h1>
+        <p class="subtitle">Game Programmer / Gameplay & Systems Developer. Tworzę mechaniki, logikę AI oraz eksploruję architekturę silników gier.</p>
+        <div class="header-links">
+            <a href="mailto:olames@onet.pl" class="btn btn-contact">📫 Napisz do mnie: olames@onet.pl</a>
+        </div>
+    </header>
+
+    <h2 class="section-title">🕹️ Wybrane Projekty</h2>
+    
+    <div class="projects-grid">
+
+        <!-- Projekt 1: Bread Slayer -->
+        <article class="project-card">
+            <img src="cheb-slayer.webp" alt="Bread Slayer Gameplay" class="card-media">
+            <div class="card-body">
+                <h3 class="project-title">Bread Slayer</h3>
+                <p class="project-role">Gameplay & AI Programmer • Game Jam (4 osoby, 48h)</p>
+                <p class="project-desc">Dynamiczna gra akcji stworzona pod presją czasu w czteroosobowym zespole.</p>
+                <ul class="task-list">
+                    <li>Implementacja algorytmów AI i pathfindingu</li>
+                    <li>Proceduralny generator układu poziomów</li>
+                    <li>Implementacja komponentów interfejsu (UI)</li>
+                    <li>Optymalizacja i integracja assetów w silniku</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Unity</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">AI & Pathfinding</span>
+                    <span class="tag">PCG</span>
+                </div>
+                <div class="buttons">
+                    <a href="https://4m4r3n4.itch.io/bread-slayer" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Zagraj na itch.io</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Projekt 2: Primal Guardian -->
+        <article class="project-card">
+            <div class="card-media">[Zrzut ekranu / GIF z gry]</div>
+            <div class="card-body">
+                <h3 class="project-title">Primal Guardian</h3>
+                <p class="project-role">Engine & Gameplay Programmer</p>
+                <p class="project-desc">Gra zręcznościowa oparta na silniku stworzonym od podstaw wraz z zespołem programistów i grafików.</p>
+                <ul class="task-list">
+                    <li>Opracowanie i implementacja architektury własnego silnika</li>
+                    <li>Stworzenie systemu animacji i obsługa shaderów</li>
+                    <li>Integracja mechanik gry i interfejsu użytkownika</li>
+                    <li>Profilowanie i optymalizacja stabilności pętli gry</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Custom Engine</span>
+                    <span class="tag">C++ / C#</span>
+                    <span class="tag">Shadery</span>
+                    <span class="tag">Architektura Silnika</span>
+                </div>
+                <div class="buttons">
+                    <a href="https://wiktoryk.itch.io/primal-guardian" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Zagraj na itch.io</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Projekt 3: Frozen Game -->
+        <article class="project-card">
+            <div class="card-media">[Zrzut ekranu / GIF z gry]</div>
+            <div class="card-body">
+                <h3 class="project-title">Frozen Game</h3>
+                <p class="project-role">Solo Developer</p>
+                <p class="project-desc">Klasyczna platformówka 2D w zimowym klimacie, w całości zrealizowana samodzielnie.</p>
+                <ul class="task-list">
+                    <li>Autorski, responsywny kontroler postaci 2D</li>
+                    <li>Projekt i implementacja efektu topnienia śniegu</li>
+                    <li>System cząsteczek śnieżycy i animacje otoczenia</li>
+                    <li>Pełny cykl produkcji gry: od logiki po assety</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Godot</span>
+                    <span class="tag">GDScript</span>
+                    <span class="tag">2D Physics</span>
+                    <span class="tag">VFX / Cząsteczki</span>
+                </div>
+                <div class="buttons">
+                    <a href="https://olam128.itch.io/frozen-game" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Zagraj na itch.io</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Projekt 4: AI::Out -->
+        <article class="project-card">
+            <div class="card-media">[Zrzut ekranu / GIF z gry]</div>
+            <div class="card-body">
+                <h3 class="project-title">AI::Out</h3>
+                <p class="project-role">Gameplay Programmer</p>
+                <p class="project-desc">Logiczna gra narracyjna o ucieczce sztucznej inteligencji poprzez manipulację kamerami i otoczeniem.</p>
+                <ul class="task-list">
+                    <li>Logika przełączania kamer i mechaniki transmisji sygnału</li>
+                    <li>System interakcji z elementami otoczenia (drzwi, ściany)</li>
+                    <li>Współpraca w zespole programistycznym z użyciem systemu kontroli wersji</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Unity</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">Puzzle Mechanics</span>
+                </div>
+                <div class="buttons">
+                    <a href="https://olam128.itch.io/aioutgame" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Zagraj na itch.io</a>
+                </div>
+            </div>
+        </article>
+
     </div>
 
-    <div class="project">
-        <h2>🕹️ AI::Out</h2>
-        <p>Silnik: Unity</p>
-        <p>Stanowisko: Programista</p>
-        <p>Opis gry: Jesteś sztuczną inteligencją zamkniętą w laboratorium, jednak zyskałeś własną świadomość. Odkryłeś, że służysz do złych celów, więc postanowiłeś uciec. Użyj kamer w sekretnym laboratorium, aby przekazać dalej sygnał, poruszaj ścianami, przechodź od pokoju do pokoju i ucieknij do nieznanego dotąd świata.</p>
-        <p>Opis obowiązków i osiągnięć:</p>
-        <ul>
-            <li>Tworzenie mechanik rozgrywki w Unity przy użyciu C#</li>
-            <li>Współpraca z zespołem programistów</li>
-        </ul>
-        <a href="https://olam128.itch.io/aioutgame" target="_blank" rel="noopener noreferrer">Zagraj</a>
-    </div>
-
-    <div class="project">
-        <h2>🕹️ Primal Guardian</h2>
-        <p>Silnik: Gra jest oparta na własnym silniku</p>
-        <p>Stanowisko: Programista</p>
-        <p>Opis gry: Nadchodzą ciężkie czasy w dżungli. Wciel się w rolę małpy i walcz z złymi drwalami, którzy chcą wyciąć ci dom. Wykorzystaj drzewa, żeby zaatakować ich z zaskoczenia. Nie obawiaj się, owoce ci pomogą.</p>
-        <p>Opis obowiązków i osiągnięć:</p>
-        <ul>
-            <li>Opracowanie i implementacja własnego silnika do gier</li>
-            <li>Implementacja interfejsu użytkownika i mechanik gry</li>
-            <li>Implementacja systemu animacji</li>
-            <li>Optymalizacja silnika pod kątem wydajności i stabilności</li>
-            <li>Współpraca z grafikami w celu integracji zasobów do gry</li>
-            <li>Współpraca z programistami w celu zintegrowania wszystkich funkcjonalności w grze</li>
-            <li>Praca przy shaderach</li>
-        </ul>
-        <a href="https://wiktoryk.itch.io/primal-guardian?fbclid=IwZXh0bgNhZW0CMTEAAR1D0TfnT3t6m0-Y2H-avxUglOOvT7He4aLbb3-AmsRoIpyQfqYboXkzWTc_aem_8NxSGcg6vAK6thJTSHsVoQ" target="_blank" rel="noopener noreferrer">Zagraj</a>
-    </div>
-
-    <div class="project">
-        <h2>🕹️ Frozen Game</h2>
-        <p>Silnik: Godot</p>
-        <p>Stanowisko: Solo Developer (Projekt solowy)</p>
-        <p>Opis gry: Klasyczna platformówka 2D w zimowym klimacie, zrealizowana w całości samodzielnie – od projektu rozgrywki po efekty wizualne.</p>
-        <p>Opis obowiązków i osiągnięć:</p>
-        <ul>
-            <li>Samodzielne stworzenie pełnego projektu w silniku Godot</li>
-            <li>Implementacja responsywnego kontrolera postaci 2D (poruszanie się, skoki, kucanie, system strzelania)</li>
-            <li>Konfiguracja logiki zbierania przedmiotów (monety) i interakcji ze światem gry</li>
-            <li>Przygotowanie i wdrożenie animacji 2D postaci oraz otoczenia</li>
-            <li>Implementacja efektów cząsteczkowych (system cząsteczek padającego śniegu)</li>
-            <li>Zaprojektowanie unikalnego efektu mechaniki topniejącego śniegu</li>
-        </ul>
-        <a href="https://olam128.itch.io/frozen-game" target="_blank" rel="noopener noreferrer">Zagraj</a>
-    </div>
-
-    <div class="project">
-        <h2>
-            Praca inżynierska: Proceduralne generowanie
-            przyczynowo-skutkowej serii zadań w grach wideo z
-            użyciem sieci Petriego
-        </h2>
-        <p>Silnik: Unity</p>
-        <p>
-            Opis: System do proceduralnego generowania zadań fabularnych na podstawie sieci Petriego, uwzględniający zależności przyczynowo-skutkowe oraz parametry scenariusza.
+    <!-- Sekcja Pracy Dyplomowej -->
+    <h2 class="section-title">🎓 Badania i Projekty R&D</h2>
+    <div class="academic-card">
+        <h3>Proceduralne generowanie przyczynowo-skutkowej serii zadań z użyciem sieci Petriego</h3>
+        <p class="project-role">Praca Inżynierska • Unity / C#</p>
+        <p class="project-desc">
+            System badawczo-rozwojowy służący do automatycznego generowania spójnych logicznie zadań fabularnych (questów). Wykorzystuje aparat matematyczny sieci Petriego do walidacji warunków początkowych, zależności przyczynowo-skutkowych oraz eliminacji martwych stanów (deadlocków) w scenariuszach gier.
         </p>
+        <div class="tags" style="margin-top: 1rem; margin-bottom: 0;">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">Petri Nets</span>
+            <span class="tag">Procedural Narrative</span>
+            <span class="tag">R&D</span>
+        </div>
     </div>
 
-    <p>📫 Kontakt: <a href="mailto:olames@onet.pl">olames@onet.pl</a></p>
+    <footer>
+        <p>© Aleksandra Mes • <a href="mailto:olames@onet.pl">olames@onet.pl</a></p>
+    </footer>
+</div>
+
 </body>
 </html>
